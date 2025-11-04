@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twilight Coffee | Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <img src="Tw.jpg" alt="Twilight Coffee Logo" class="logo">
+      <h1>Twilight Coffee</h1>
+
+    </div>
+  </header>
+  
+  
+<a href="dashboard.html" class="back-home">← Back to Home</a>
+
+  <main class="menu-container">
+    <h2>Our Coffee Menu ☕</h2>
+    <p>Discover handcrafted favorites and seasonal specials.</p>
+
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="espresso.jpg" alt="Classic Espresso">
+        <h3>Classic Espresso</h3>
+        <p>Strong, smooth, and bold — the original Italian shot.</p>
+        <span class="price">$3.50</span>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="menu-item">
+        <img src="latte.jpg" alt="Vanilla Latte">
+        <h3>Vanilla Latte</h3>
+        <p>Sweet vanilla meets creamy steamed milk.</p>
+        <span class="price">$4.50</span>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="menu-item">
+        <img src="coldbrew.jpg" alt="Cold Brew">
+        <h3>Cold Brew</h3>
+        <p>Slow-steeped for 20 hours for a rich and smooth taste.</p>
+        <span class="price">$4.00</span>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="menu-item">
+        <img src="mucha.jpg" alt="Mocha">
+        <h3>Mocha</h3>
+        <p>Chocolatey indulgence with a hint of espresso magic.</p>
+        <span class="price">$4.75</span>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <section class="cart">
+      <h3>Your Cart 🛒</h3>
+      <ul id="cart-items"></ul>
+      <p><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
+      <button class="btn checkout-btn">Checkout</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <a href="#top" class="back-to-top">⬆ Back to Top</a>
+    
+      <p><strong>Twilight Coffee</strong> — brewing smiles since 1971 ☕</p>
+      <p><small>&copy; 2025 Twilight Coffee. All rights reserved.</small></p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple cart functionality
+    const buttons = document.querySelectorAll('.add-to-cart');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    let total = 0;
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const name = item.querySelector('h3').textContent;
+        const price = parseFloat(item.querySelector('.price').textContent.replace('$', ''));
+        const li = document.createElement('li');
+        li.textContent = `${name} - $${price.toFixed(2)}`;
+        cartItems.appendChild(li);
+        total += price;
+        cartTotal.textContent = total.toFixed(2);
+      });
+    });
+  </script>
+
+</body>
+</html>
