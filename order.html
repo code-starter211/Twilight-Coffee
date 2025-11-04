@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twilight Coffee | Order Now</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <img src="Tw.jpg" alt="Twilight Coffee Logo" class="logo">
+      <h1>Twilight Coffee</h1>
+      
+    </div>
+  </header>
+  
+        <a href="dashboard.html" class="back-home">← Back to Home</a>
+
+  <main class="dashboard-container">
+    <h2>Order Your Favorite Coffee ☕</h2>
+    <p>Select from our bestsellers and place your order instantly!</p>
+
+    <form class="order-form">
+      <label for="product">Choose a drink:</label>
+      <select id="product" name="product" required>
+        <option value="">--Select--</option>
+        <option>Classic Espresso</option>
+        <option>Vanilla Latte</option>
+        <option>Cold Brew</option>
+        <option>Mocha</option>
+      </select>
+
+      <label for="size">Size:</label>
+      <select id="size" name="size" required>
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+      </select>
+
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+      <button type="submit" class="btn">Place Order</button>
+    </form>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <a href="#top" class="back-to-top">⬆ Back to Top</a>
+    
+      <p><strong>Twilight Coffee</strong> — brewing smiles since 1971 ☕</p>
+      <p><small>&copy; 2025 Twilight Coffee. All rights reserved.</small></p>
+    </div>
+  </footer>
+</body>
+</html>
