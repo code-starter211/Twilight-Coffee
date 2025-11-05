@@ -23,7 +23,7 @@
     <div class="auth-box">
       <h2>Create Your Account ☕</h2>
       <p>Join Twilight Coffee and start your journey today</p>
-            <form class="auth-form" onsubmit="register(); return false;">
+            <form class="auth-form" onsubmit="return false;">
       
         <label for="fullname">Full Name</label>
         <input type="text" id="fullname" name="fullname" required>
@@ -36,8 +36,8 @@
 
         <label for="confirm">Confirm Password</label>
         <input type="password" id="confirm" name="confirm" required>
-                <p id="regError" style="color:red;"></p>
-<button type="button" onclick="register()">Register</button>
+                <p id="regError" style="color:red; min-height:1.2em;"></p>
+<button type="button" id="registerBtn">Register</button>
         
 
         <p class="auth-switch">
@@ -59,27 +59,36 @@
     </div>
   </footer>
 
-  <script>
-function register() {
-  const fullname = document.getElementById("fullname").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const confirm = document.getElementById("confirm").value;
-  const errorBox = document.getElementById("regError");
+  
+<script>
+/* Register handler — uses the exact input IDs from the form above */
+document.getElementById('registerBtn').addEventListener('click', function () {
+  const fullname = document.getElementById('fullname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const confirm = document.getElementById('confirm').value;
+  const err = document.getElementById('regError');
 
-  if (password !== confirm) {
-    errorBox.textContent = "❌ Passwords do not match";
+  err.textContent = '';
+
+  if (!fullname || !email || !password || !confirm) {
+    err.textContent = 'Please complete all fields.';
     return;
   }
+  if (password !== confirm) {
+    err.textContent = 'Passwords do not match.';
+    return;
+  }
+  /* Save (demo only) */
+  localStorage.setItem('userFullname', fullname);
+  localStorage.setItem('userEmail', email);
+  localStorage.setItem('userPassword', password);
 
-  // Save to LocalStorage
-  localStorage.setItem("userFullname", fullname);
-  localStorage.setItem("userEmail", email);
-  localStorage.setItem("userPassword", password);
-
-  alert("✅ Registration successful!");
-  window.location.href = "login.html"; // redirect to login
-}
-  </script>
+  alert('Registration successful ✅');
+  /* Redirect to login (must match exact filename) */
+  window.location.href = 'login.html';
+});
+</script>
+  
 </body>
 </html>
