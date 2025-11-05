@@ -10,6 +10,13 @@
 
 <body id="top">
 
+  <script>
+  const userEmail = localStorage.getItem("userEmail");
+  if (!userEmail) {
+      window.location.href = "login.html";
+  }
+  </script>
+  
   <!-- Header -->
   <header class="header">
     <div class="header-container">
@@ -26,7 +33,9 @@
         <a href="offer.html">Offers</a>
         <a href="profile.html">Profile</a>
         <a href="contact.html">Contact Us</a>
-        <a href="index.html" class="logout-btn">Logout</a>
+          
+<a class="logout-btn" onclick="logout()">Logout</a>
+        
       </nav>
     </div>
   </header>
@@ -73,6 +82,14 @@
       <p><small>&copy; 2025 Twilight Coffee. All rights reserved.</small></p>
     </div>
   </footer>
+
+  
+<script>
+function logout() {
+  localStorage.removeItem("userEmail");   // remove only the session
+  window.location.replace("login.html");  // replace prevents going back
+}
+</script>      
 
 </body>
 </html>
