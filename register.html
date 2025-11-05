@@ -23,7 +23,8 @@
     <div class="auth-box">
       <h2>Create Your Account ☕</h2>
       <p>Join Twilight Coffee and start your journey today</p>
-      <form action="#" method="post" class="auth-form">
+            <form class="auth-form" onsubmit="register(); return false;">
+      
         <label for="fullname">Full Name</label>
         <input type="text" id="fullname" name="fullname" required>
 
@@ -35,6 +36,7 @@
 
         <label for="confirm">Confirm Password</label>
         <input type="password" id="confirm" name="confirm" required>
+                <p id="regError" style="color:red;"></p>
 
         <button type="submit">Register</button>
 
@@ -56,5 +58,19 @@
       <p><small>&copy; 2025 Twilight Coffee. All rights reserved.</small></p>
     </div>
   </footer>
+
+   <script>
+function register() {
+  const email = document.getElementById("regEmail").value;
+  const password = document.getElementById("regPassword").value;
+
+  // Save to LocalStorage
+  localStorage.setItem("userEmail", email);
+  localStorage.setItem("userPassword", password);
+
+  alert("Registration successful ✅");
+  window.location.href = "login.html"; // redirect back to login
+}
+   </script> 
 </body>
 </html>
